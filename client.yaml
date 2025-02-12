@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-client
+  template:
+    metadata:
+      labels:
+        app: simple-client
+    spec:
+      containers:
+      - name: simple-client
+        image: simple-client:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: SERVER_URL
+          value: "http://server-service:8080" # Using the service name to target the server
