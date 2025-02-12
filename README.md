@@ -1,8 +1,5 @@
 # Simple-Protocol-Exchange-with-Kubernetes-Containers
 
-Assignment 1 – Simple Protocol Exchange
-
-
 Objective:
 
 The goal is to create a simple message exchange system between containers in a Kubernetes environment using HTTP requests. The application will support both GET and POST requests for interaction and will handle JSON data for communication between the client and server. This system demonstrates basic concepts of containerization, microservices communication, and HTTP request handling.
