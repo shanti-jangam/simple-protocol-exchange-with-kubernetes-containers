@@ -1,4 +1,4 @@
-# Simple-Protocol-Exchange-with-Kubernetes-Containers
+# Part 1: Simple-Protocol-Exchange-with-Kubernetes-Containers
 
 Objective:
 
@@ -111,4 +111,47 @@ Response:
 Conclusion:
 
 Broadly, this setup demonstrates the entire processing of containerizing, deploying, and exposing a client-server application while ensuring its scalability and visibility from outside using Kubernetes.
+
+
+# Part 2: Copying simple server into the container and expose it to the outside
+
+Objective:
+
+•	Opening a shell inside a Kubernetes pod.
+•	Copying the server script into the container.
+•	Running the server manually inside the container.
+•	Forwarding a port to expose the server externally.
+
+Step 1: Get pods
+kubectl get pods
+
+Step 2: Copying the server file into the container
+ kubectl cp server.py <POD NAME>:/server.py
+
+Step 3: Open a shell into Kubernetes container
+This command gives an interactive shell session inside the running pod:
+kubectl exec --stdin --tty <POD NAME> -- /bin/bash
+
+Check whether your file is copied using the command:
+ls /
+
+Step 4: Running the server inside the container
+This will launch the HTTP server on port 8081 inside the container:
+python3 /<filename>
+
+Step 5: Forward the Container’s Port to the Host
+To access the server from outside the cluster, port forwarding is needed:
+kubectl port-forward pod/<POD NAME> 8000:8081
+This maps port 8081 inside the container to 8000 on the host machine.
+
+Step 6: Testing the server
+Test GET request:
+Response-
+{"message": "This is a GET response"}
+
+Test POST request:
+Response:
+{"response": "Hello, Test User!"}
+
+
 
