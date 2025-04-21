@@ -1,5 +1,7 @@
 # Part 1: Simple-Protocol-Exchange-with-Kubernetes-Containers
 
+<img width="527" alt="Screenshot 2025-04-21 at 7 30 15 PM" src="https://github.com/user-attachments/assets/c398dfa1-f954-46c8-9fe5-cd253b57d608" />
+
 Objective:
 
 The goal is to create a simple message exchange system between containers in a Kubernetes environment using HTTP requests. The application will support both GET and POST requests for interaction and will handle JSON data for communication between the client and server. This system demonstrates basic concepts of containerization, microservices communication, and HTTP request handling.
